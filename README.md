@@ -1,6 +1,6 @@
-# Actualizador de Datapacks, Plugins y Mods → 26.3
+# Actualizador de Datapacks, Texture packs, Plugins y Mods → 26.3
 
-Página web de un solo archivo (`index.html`) que convierte datapacks, plugins y mods de Minecraft a una versión más reciente (por defecto **26.3**). Funciona en el navegador: los archivos no se suben a ningún servidor.
+Página web de un solo archivo (`index.html`) que convierte datapacks, texture packs, plugins y mods de Minecraft a una versión más reciente (por defecto **26.3**). Funciona en el navegador: los archivos no se suben a ningún servidor.
 
 ## Contenido
 
@@ -8,7 +8,9 @@ Página web de un solo archivo (`index.html`) que convierte datapacks, plugins y
 - [Pestañas](#pestañas)
 - [Formatos de entrada](#formatos-de-entrada)
 - [Salida](#salida)
+- [Detección de versiones](#detección-de-versiones)
 - [Datapacks](#datapacks)
+- [Texture packs](#texture-packs)
 - [Plugins](#plugins)
 - [Mods](#mods)
 - [Soporte de RAR](#soporte-de-rar)
@@ -31,6 +33,7 @@ Página web de un solo archivo (`index.html`) que convierte datapacks, plugins y
 | Pestaña | Qué actualiza | Versiones destino |
 |---|---|---|
 | **Datapacks** | `pack.mcmeta` (formato del pack) y, opcionalmente, nombres de carpetas | 1.21 hasta 26.3 |
+| **Texture packs** | `pack.mcmeta` (formato de resource pack) | 1.21 hasta 26.3 |
 | **Plugins** | `api-version` en `plugin.yml` o `paper-plugin.yml` | 1.21, 1.21.4, 1.21.11, 26.1, 26.2, 26.3 |
 | **Mods** | La versión de Minecraft que declara cada mod | 1.21, 1.21.1, 1.21.4, 1.21.8, 1.21.11, 26.1, 26.2, 26.3 |
 
@@ -39,6 +42,7 @@ Página web de un solo archivo (`index.html`) que convierte datapacks, plugins y
 | Pestaña | Entrada aceptada |
 |---|---|
 | Datapacks | `.zip`, `.rar`, o una carpeta de datapack dentro de un contenedor |
+| Texture packs | `.zip`, `.rar`, o una carpeta de texture pack dentro de un contenedor |
 | Plugins | `.jar`, `.zip`, `.rar` (con uno o varios `.jar` dentro) |
 | Mods | `.jar`, `.zip`, `.rar` (con uno o varios `.jar` dentro) |
 
@@ -58,6 +62,19 @@ Cada elemento se convierte por separado. Si uno falla, los demás se siguen proc
 - La salida es **siempre `.zip`**, incluso si la entrada era `.rar`. Para plugins y mods, cada `.jar` convertido se entrega como `.jar`.
 
 El resumen de cada archivo indica qué cambió y qué avisos hay que revisar.
+
+## Detección de versiones
+
+Cada elemento muestra en su resumen lo que ha detectado antes de convertirlo:
+
+| Tipo | Qué detecta | Ejemplo de resumen |
+|---|---|---|
+| Datapacks | Versión de formato actual de `pack.mcmeta` | `pack_format 48 (1.21 – 1.21.1) → 26.3` |
+| Texture packs | Descripción y versión de formato actual de `pack.mcmeta` | `pack_format 34 (1.21 – 1.21.1) → 26.3` |
+| Plugins | Nombre, versión propia del plugin y tipo de descriptor (`plugin.yml` o `paper-plugin.yml`), más el `api-version` actual | `MiPlugin v2.3.1 · plugin.yml` |
+| Mods | Cargador (Fabric, Quilt, Forge o NeoForge), id y versión propia del mod, más la versión de Minecraft que declaraba | `Fabric · cool v0.4.0` |
+
+En datapacks, texture packs y plugins, si el elemento ya declaraba la versión destino, se muestra un aviso.
 
 ## Datapacks
 
@@ -85,6 +102,36 @@ El conversor:
 | 26.3 | 121.0 |
 
 Los formatos se toman de la tabla de la página. Los avisos son heurísticos: contrasta los datos con la wiki de Minecraft antes de usar el resultado en un servidor real.
+
+## Texture packs
+
+El conversor:
+
+- Actualiza `pack.mcmeta` según la versión destino:
+  - Para **1.21 a 1.21.6** usa `pack_format`.
+  - Para **1.21.9 y posteriores** usa `min_format` y `max_format`.
+- Conserva el resto del `pack.mcmeta`, incluidos los `overlays`, que no se modifican.
+- Avisa si el pack tiene modelos de ítems en `models/item/` sin definiciones en `items/` (desde 1.21.4 hacen falta).
+
+Un contenedor puede tener varios texture packs como carpetas, `.zip` o `.rar`. Un pack con una carpeta `data/` y sin `assets/` se rechaza y debe subirse a la pestaña **Datapacks**.
+
+### Tabla de formatos
+
+| Versión | Resource pack format |
+|---|---|
+| 1.21 – 1.21.1 | 34 |
+| 1.21.2 – 1.21.3 | 42 |
+| 1.21.4 | 46 |
+| 1.21.5 | 55 |
+| 1.21.6 | 63 |
+| 1.21.7 – 1.21.8 | 64 |
+| 1.21.9 – 1.21.10 | 69 |
+| 1.21.11 | 75 |
+| 26.1 – 26.1.2 | 84 |
+| 26.2 | 88 |
+| 26.3 | 97.1 |
+
+Los formatos de 26.x se tomaron de la wiki de Minecraft (Pack format) y de los changelogs de 26.2 y 26.3.
 
 ## Plugins
 
@@ -143,6 +190,8 @@ Se probó en Chromium con la misma CSP que el visor, subiendo archivos por la in
 - `rar_only.rar` suelto → el RAR se lee, y se informa el error esperado porque no contiene un datapack.
 - `bundle.zip` con un datapack `.zip` y un `.rar` dentro → `bundle-26.3.zip`. El datapack se convierte y el `.rar` se mantiene con su error.
 - `plugin.jar` → `plugin-26.3.jar`, con `api-version` 1.21 → 26.3.
+
+Además, con Node.js y una simulación del DOM se probaron la lógica de conversión y la detección de versiones: texture packs sueltos, con rango `min_format`/`max_format`, en contenedores (carpetas y .zip anidados) y con datapacks mal subidos; plugins `plugin.yml` y `paper-plugin.yml`; mods Fabric y NeoForge; y contenedores de plugins y mods con elementos válidos e inválidos. También se comprobó que los datapacks no cambian con esta versión.
 
 Sin violaciones de CSP ni errores de página. La sintaxis del script principal se comprobó con `node --check`.
 

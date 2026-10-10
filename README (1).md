@@ -14,14 +14,14 @@ Página web de un solo archivo (`index.html`) que convierte datapacks, texture p
 - [Plugins](#plugins)
 - [Mods](#mods)
 - [Soporte de RAR](#soporte-de-rar)
-- [Limitaciones](#limitaciones)
+- [Limitaciones](#limitaciones)n
 - [Requisitos técnicos](#requisitos-técnicos)
 - [Pruebas realizadas](#pruebas-realizadas)
 
 ## Cómo se usa
 
 1. Abre `index.html` en un navegador moderno (Chrome, Edge, Firefox o Safari).
-2. Elige la pestaña: **Datapacks**, **Plugins** o **Mods**.
+2. Elige la pestaña: **Datapacks**, **Plugins**, **Mods** o **Texture pack** .
 3. Selecciona la versión destino en el desplegable.
 4. Arrastra tus archivos a la zona de carga, o haz clic en ella para elegirlos. Puedes subir varios a la vez.
 5. Revisa el resumen de cada archivo y descarga el resultado con el botón **Descargar**.

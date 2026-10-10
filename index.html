@@ -132,12 +132,25 @@
   <!-- ================= DATAPACKS ================= -->
   <section id="panel-datapacks" class="panel">
     <h1>Actualizador de Datapacks</h1>
-    <p class="sub">Sube un datapack (.zip o .rar) o un contenedor con varios datapacks dentro, de 1.21 a 26.2, y actualízalos a la versión elegida (por defecto <strong>26.3</strong>).</p>
+    <p class="sub">Sube un datapack (.zip o .rar) o un contenedor con varios datapacks dentro, de 1.12 a 26.3, y actualízalos a la versión elegida (por defecto <strong>26.3</strong>).</p>
 
     <section class="card">
       <label>
         Versión destino
         <select id="dp-target">
+          <option data-label="1.12.2" value="3">1.11 – 1.12.2 (format 3; solo referencia, los datapacks empiezan en 1.13)</option>
+          <option data-label="1.14.4" value="4">1.13 – 1.14.4 (format 4)</option>
+          <option data-label="1.16.1" value="5">1.15 – 1.16.1 (format 5)</option>
+          <option data-label="1.16.5" value="6">1.16.2 – 1.16.5 (format 6)</option>
+          <option data-label="1.17.1" value="7">1.17 – 1.17.1 (format 7)</option>
+          <option data-label="1.18.1" value="8">1.18 – 1.18.1 (format 8)</option>
+          <option data-label="1.18.2" value="9">1.18.2 (format 9)</option>
+          <option data-label="1.19.3" value="10">1.19 – 1.19.3 (format 10)</option>
+          <option data-label="1.19.4" value="12">1.19.4 (format 12)</option>
+          <option data-label="1.20.1" value="15">1.20 – 1.20.1 (format 15)</option>
+          <option data-label="1.20.2" value="18">1.20.2 (format 18)</option>
+          <option data-label="1.20.4" value="26">1.20.3 – 1.20.4 (format 26)</option>
+          <option data-label="1.20.6" value="41">1.20.5 – 1.20.6 (format 41)</option>
           <option data-label="1.21" value="48">1.21 – 1.21.1 (format 48)</option>
           <option data-label="1.21.2" value="57">1.21.2 – 1.21.3 (format 57)</option>
           <option data-label="1.21.4" value="61">1.21.4 (format 61)</option>
@@ -154,7 +167,7 @@
 
       <label class="check">
         <input type="checkbox" id="dp-folders" checked>
-        Renombrar carpetas plurales a singulares (functions → function, loot_tables → loot_table…)
+        Ajustar nombres de carpetas a la versión destino (singular desde 1.21: functions → function; plural en versiones anteriores)
       </label>
 
       <div id="dp-drop" class="drop">
@@ -172,6 +185,19 @@
       <table>
         <thead><tr><th>Versión</th><th>Data pack format</th></tr></thead>
         <tbody>
+          <tr><td>1.11 – 1.12.2 (solo referencia; los datapacks empiezan en 1.13)</td><td>3</td></tr>
+          <tr><td>1.13 – 1.14.4</td><td>4</td></tr>
+          <tr><td>1.15 – 1.16.1</td><td>5</td></tr>
+          <tr><td>1.16.2 – 1.16.5</td><td>6</td></tr>
+          <tr><td>1.17 – 1.17.1</td><td>7</td></tr>
+          <tr><td>1.18 – 1.18.1</td><td>8</td></tr>
+          <tr><td>1.18.2</td><td>9</td></tr>
+          <tr><td>1.19 – 1.19.3</td><td>10</td></tr>
+          <tr><td>1.19.4</td><td>12</td></tr>
+          <tr><td>1.20 – 1.20.1</td><td>15</td></tr>
+          <tr><td>1.20.2</td><td>18</td></tr>
+          <tr><td>1.20.3 – 1.20.4</td><td>26</td></tr>
+          <tr><td>1.20.5 – 1.20.6</td><td>41</td></tr>
           <tr><td>1.21 – 1.21.1</td><td>48</td></tr>
           <tr><td>1.21.2 – 1.21.3</td><td>57</td></tr>
           <tr><td>1.21.4</td><td>61</td></tr>
@@ -201,12 +227,61 @@
       <label>
         Versión de API destino
         <select id="pl-target">
+          <option data-label="1.12" value="1.12">1.12</option>
+          <option data-label="1.12.1" value="1.12.1">1.12.1</option>
+          <option data-label="1.12.2" value="1.12.2">1.12.2</option>
+          <option data-label="1.13" value="1.13">1.13</option>
+          <option data-label="1.13.1" value="1.13.1">1.13.1</option>
+          <option data-label="1.13.2" value="1.13.2">1.13.2</option>
+          <option data-label="1.14" value="1.14">1.14</option>
+          <option data-label="1.14.1" value="1.14.1">1.14.1</option>
+          <option data-label="1.14.2" value="1.14.2">1.14.2</option>
+          <option data-label="1.14.3" value="1.14.3">1.14.3</option>
+          <option data-label="1.14.4" value="1.14.4">1.14.4</option>
+          <option data-label="1.15" value="1.15">1.15</option>
+          <option data-label="1.15.1" value="1.15.1">1.15.1</option>
+          <option data-label="1.15.2" value="1.15.2">1.15.2</option>
+          <option data-label="1.16" value="1.16">1.16</option>
+          <option data-label="1.16.1" value="1.16.1">1.16.1</option>
+          <option data-label="1.16.2" value="1.16.2">1.16.2</option>
+          <option data-label="1.16.3" value="1.16.3">1.16.3</option>
+          <option data-label="1.16.4" value="1.16.4">1.16.4</option>
+          <option data-label="1.16.5" value="1.16.5">1.16.5</option>
+          <option data-label="1.17" value="1.17">1.17</option>
+          <option data-label="1.17.1" value="1.17.1">1.17.1</option>
+          <option data-label="1.18" value="1.18">1.18</option>
+          <option data-label="1.18.1" value="1.18.1">1.18.1</option>
+          <option data-label="1.18.2" value="1.18.2">1.18.2</option>
+          <option data-label="1.19" value="1.19">1.19</option>
+          <option data-label="1.19.1" value="1.19.1">1.19.1</option>
+          <option data-label="1.19.2" value="1.19.2">1.19.2</option>
+          <option data-label="1.19.3" value="1.19.3">1.19.3</option>
+          <option data-label="1.19.4" value="1.19.4">1.19.4</option>
+          <option data-label="1.20" value="1.20">1.20</option>
+          <option data-label="1.20.1" value="1.20.1">1.20.1</option>
+          <option data-label="1.20.2" value="1.20.2">1.20.2</option>
+          <option data-label="1.20.3" value="1.20.3">1.20.3</option>
+          <option data-label="1.20.4" value="1.20.4">1.20.4</option>
+          <option data-label="1.20.5" value="1.20.5">1.20.5</option>
+          <option data-label="1.20.6" value="1.20.6">1.20.6</option>
           <option data-label="1.21" value="1.21">1.21</option>
+          <option data-label="1.21.1" value="1.21.1">1.21.1</option>
+          <option data-label="1.21.2" value="1.21.2">1.21.2</option>
+          <option data-label="1.21.3" value="1.21.3">1.21.3</option>
           <option data-label="1.21.4" value="1.21.4">1.21.4</option>
+          <option data-label="1.21.5" value="1.21.5">1.21.5</option>
+          <option data-label="1.21.6" value="1.21.6">1.21.6</option>
+          <option data-label="1.21.7" value="1.21.7">1.21.7</option>
+          <option data-label="1.21.8" value="1.21.8">1.21.8</option>
+          <option data-label="1.21.9" value="1.21.9">1.21.9</option>
+          <option data-label="1.21.10" value="1.21.10">1.21.10</option>
           <option data-label="1.21.11" value="1.21.11">1.21.11</option>
           <option data-label="26.1" value="26.1">26.1</option>
+          <option data-label="26.1.1" value="26.1.1">26.1.1</option>
+          <option data-label="26.1.2" value="26.1.2">26.1.2</option>
           <option data-label="26.2" value="26.2">26.2</option>
           <option data-label="26.3" value="26.3" selected>26.3</option>
+
         </select>
       </label>
 
@@ -235,14 +310,61 @@
       <label>
         Versión de Minecraft destino
         <select id="md-target">
+          <option data-label="1.12" value="1.12">1.12</option>
+          <option data-label="1.12.1" value="1.12.1">1.12.1</option>
+          <option data-label="1.12.2" value="1.12.2">1.12.2</option>
+          <option data-label="1.13" value="1.13">1.13</option>
+          <option data-label="1.13.1" value="1.13.1">1.13.1</option>
+          <option data-label="1.13.2" value="1.13.2">1.13.2</option>
+          <option data-label="1.14" value="1.14">1.14</option>
+          <option data-label="1.14.1" value="1.14.1">1.14.1</option>
+          <option data-label="1.14.2" value="1.14.2">1.14.2</option>
+          <option data-label="1.14.3" value="1.14.3">1.14.3</option>
+          <option data-label="1.14.4" value="1.14.4">1.14.4</option>
+          <option data-label="1.15" value="1.15">1.15</option>
+          <option data-label="1.15.1" value="1.15.1">1.15.1</option>
+          <option data-label="1.15.2" value="1.15.2">1.15.2</option>
+          <option data-label="1.16" value="1.16">1.16</option>
+          <option data-label="1.16.1" value="1.16.1">1.16.1</option>
+          <option data-label="1.16.2" value="1.16.2">1.16.2</option>
+          <option data-label="1.16.3" value="1.16.3">1.16.3</option>
+          <option data-label="1.16.4" value="1.16.4">1.16.4</option>
+          <option data-label="1.16.5" value="1.16.5">1.16.5</option>
+          <option data-label="1.17" value="1.17">1.17</option>
+          <option data-label="1.17.1" value="1.17.1">1.17.1</option>
+          <option data-label="1.18" value="1.18">1.18</option>
+          <option data-label="1.18.1" value="1.18.1">1.18.1</option>
+          <option data-label="1.18.2" value="1.18.2">1.18.2</option>
+          <option data-label="1.19" value="1.19">1.19</option>
+          <option data-label="1.19.1" value="1.19.1">1.19.1</option>
+          <option data-label="1.19.2" value="1.19.2">1.19.2</option>
+          <option data-label="1.19.3" value="1.19.3">1.19.3</option>
+          <option data-label="1.19.4" value="1.19.4">1.19.4</option>
+          <option data-label="1.20" value="1.20">1.20</option>
+          <option data-label="1.20.1" value="1.20.1">1.20.1</option>
+          <option data-label="1.20.2" value="1.20.2">1.20.2</option>
+          <option data-label="1.20.3" value="1.20.3">1.20.3</option>
+          <option data-label="1.20.4" value="1.20.4">1.20.4</option>
+          <option data-label="1.20.5" value="1.20.5">1.20.5</option>
+          <option data-label="1.20.6" value="1.20.6">1.20.6</option>
           <option data-label="1.21" value="1.21">1.21</option>
           <option data-label="1.21.1" value="1.21.1">1.21.1</option>
+          <option data-label="1.21.2" value="1.21.2">1.21.2</option>
+          <option data-label="1.21.3" value="1.21.3">1.21.3</option>
           <option data-label="1.21.4" value="1.21.4">1.21.4</option>
+          <option data-label="1.21.5" value="1.21.5">1.21.5</option>
+          <option data-label="1.21.6" value="1.21.6">1.21.6</option>
+          <option data-label="1.21.7" value="1.21.7">1.21.7</option>
           <option data-label="1.21.8" value="1.21.8">1.21.8</option>
+          <option data-label="1.21.9" value="1.21.9">1.21.9</option>
+          <option data-label="1.21.10" value="1.21.10">1.21.10</option>
           <option data-label="1.21.11" value="1.21.11">1.21.11</option>
           <option data-label="26.1" value="26.1">26.1</option>
+          <option data-label="26.1.1" value="26.1.1">26.1.1</option>
+          <option data-label="26.1.2" value="26.1.2">26.1.2</option>
           <option data-label="26.2" value="26.2">26.2</option>
           <option data-label="26.3" value="26.3" selected>26.3</option>
+
         </select>
       </label>
 
@@ -270,6 +392,19 @@
       <label>
         Versión destino
         <select id="tx-target">
+          <option data-label="1.12.2" value="3">1.11 – 1.12.2 (format 3)</option>
+          <option data-label="1.14.4" value="4">1.13 – 1.14.4 (format 4)</option>
+          <option data-label="1.16.1" value="5">1.15 – 1.16.1 (format 5)</option>
+          <option data-label="1.16.5" value="6">1.16.2 – 1.16.5 (format 6)</option>
+          <option data-label="1.17.1" value="7">1.17 – 1.17.1 (format 7)</option>
+          <option data-label="1.18.2" value="8">1.18 – 1.18.2 (format 8)</option>
+          <option data-label="1.19.2" value="9">1.19 – 1.19.2 (format 9)</option>
+          <option data-label="1.19.3" value="12">1.19.3 (format 12)</option>
+          <option data-label="1.19.4" value="13">1.19.4 (format 13)</option>
+          <option data-label="1.20.1" value="15">1.20 – 1.20.1 (format 15)</option>
+          <option data-label="1.20.2" value="18">1.20.2 (format 18)</option>
+          <option data-label="1.20.4" value="22">1.20.3 – 1.20.4 (format 22)</option>
+          <option data-label="1.20.6" value="32">1.20.5 – 1.20.6 (format 32)</option>
           <option data-label="1.21" value="34">1.21 – 1.21.1 (format 34)</option>
           <option data-label="1.21.2" value="42">1.21.2 – 1.21.3 (format 42)</option>
           <option data-label="1.21.4" value="46">1.21.4 (format 46)</option>
@@ -299,6 +434,19 @@
       <table>
         <thead><tr><th>Versión</th><th>Resource pack format</th></tr></thead>
         <tbody>
+          <tr><td>1.11 – 1.12.2</td><td>3</td></tr>
+          <tr><td>1.13 – 1.14.4</td><td>4</td></tr>
+          <tr><td>1.15 – 1.16.1</td><td>5</td></tr>
+          <tr><td>1.16.2 – 1.16.5</td><td>6</td></tr>
+          <tr><td>1.17 – 1.17.1</td><td>7</td></tr>
+          <tr><td>1.18 – 1.18.2</td><td>8</td></tr>
+          <tr><td>1.19 – 1.19.2</td><td>9</td></tr>
+          <tr><td>1.19.3</td><td>12</td></tr>
+          <tr><td>1.19.4</td><td>13</td></tr>
+          <tr><td>1.20 – 1.20.1</td><td>15</td></tr>
+          <tr><td>1.20.2</td><td>18</td></tr>
+          <tr><td>1.20.3 – 1.20.4</td><td>22</td></tr>
+          <tr><td>1.20.5 – 1.20.6</td><td>32</td></tr>
           <tr><td>1.21 – 1.21.1</td><td>34</td></tr>
           <tr><td>1.21.2 – 1.21.3</td><td>42</td></tr>
           <tr><td>1.21.4</td><td>46</td></tr>
@@ -336,10 +484,16 @@ If this abort() is unexpected, build with -s ASSERTIONS=1 which can give more in
 (() => {
   // ================= DATAPACKS: datos =================
   const FORMAT_LABELS = {
+    3: '1.11 – 1.12.2', 4: '1.13 – 1.14.4', 5: '1.15 – 1.16.1', 6: '1.16.2 – 1.16.5', 7: '1.17 – 1.17.1', 8: '1.18 – 1.18.1',
+    9: '1.18.2', 10: '1.19 – 1.19.3', 12: '1.19.4', 15: '1.20 – 1.20.1', 18: '1.20.2', 26: '1.20.3 – 1.20.4',
+    41: '1.20.5 – 1.20.6',
     48: '1.21 – 1.21.1', 57: '1.21.2 – 1.21.3', 61: '1.21.4', 71: '1.21.5', 80: '1.21.6',
     81: '1.21.7 – 1.21.8', 88: '1.21.9 – 1.21.10', 94: '1.21.11', 101: '26.1', 107: '26.2', 121: '26.3'
   };
   const RP_FORMAT_LABELS = {
+    3: '1.11 – 1.12.2', 4: '1.13 – 1.14.4', 5: '1.15 – 1.16.1', 6: '1.16.2 – 1.16.5', 7: '1.17 – 1.17.1',
+    8: '1.18 – 1.18.2', 9: '1.19 – 1.19.2', 12: '1.19.3', 13: '1.19.4', 15: '1.20 – 1.20.1', 18: '1.20.2',
+    22: '1.20.3 – 1.20.4', 32: '1.20.5 – 1.20.6',
     34: '1.21 – 1.21.1', 42: '1.21.2 – 1.21.3', 46: '1.21.4', 55: '1.21.5', 63: '1.21.6',
     64: '1.21.7 – 1.21.8', 69: '1.21.9 – 1.21.10', 75: '1.21.11', 84: '26.1', 88: '26.2', 97: '26.3'
   };
@@ -376,7 +530,17 @@ If this abort() is unexpected, build with -s ASSERTIONS=1 which can give more in
     const major = Array.isArray(v) ? v[0] : Math.floor(Number(v));
     if (labels[major]) return ` (${labels[major]})`;
     const first = Math.min(...Object.keys(labels).map(Number));
-    return major < first ? ' (anterior a 1.21)' : '';
+    return major < first ? ' (versión anterior)' : '';
+  };
+  // Compara cadenas de versión ("1.12.2", "26.3"): true si a < b
+  const verLt = (a, b) => {
+    const x = String(a).split('.').map(Number);
+    const y = String(b).split('.').map(Number);
+    for (let i = 0; i < Math.max(x.length, y.length); i++) {
+      const p = x[i] || 0; const q = y[i] || 0;
+      if (p !== q) return p < q;
+    }
+    return false;
   };
   const fileNames = (zip) => Object.keys(zip.files).filter(n => !zip.files[n].dir);
   const pickFirst = (names, candidates) => {
@@ -424,12 +588,17 @@ If this abort() is unexpected, build with -s ASSERTIONS=1 which can give more in
     return 'desconocido';
   }
 
-  function singularizePath(rel) {
+  const PLURAL_REV = new Map([...PLURAL].map(([a, b]) => [b, a]));
+  const TAG_PLURAL_REV = new Map([...TAG_PLURAL].map(([a, b]) => [b, a]));
+  // toSingular: true para 1.21+ (function), false para versiones anteriores (functions)
+  function convertFolderPath(rel, toSingular) {
     const m = rel.match(/^data\/([^/]+)\/(.*)$/);
     if (!m) return rel;
     const parts = m[2].split('/');
-    if (parts[0] === 'tags' && parts.length > 2 && TAG_PLURAL.has(parts[1])) parts[1] = TAG_PLURAL.get(parts[1]);
-    else if (parts.length > 1 && PLURAL.has(parts[0])) parts[0] = PLURAL.get(parts[0]);
+    const tagMap = toSingular ? TAG_PLURAL : TAG_PLURAL_REV;
+    const dirMap = toSingular ? PLURAL : PLURAL_REV;
+    if (parts[0] === 'tags' && parts.length > 2 && tagMap.has(parts[1])) parts[1] = tagMap.get(parts[1]);
+    else if (parts.length > 1 && dirMap.has(parts[0])) parts[0] = dirMap.get(parts[0]);
     return `data/${m[1]}/${parts.join('/')}`;
   }
 
@@ -474,12 +643,13 @@ If this abort() is unexpected, build with -s ASSERTIONS=1 which can give more in
     if (srcMajor && srcMajor === t.major) warnings.push(`El datapack ya indicaba la versión ${label}`);
     if (srcMajor && srcMajor > t.major) warnings.push('El datapack es de una versión posterior a la destino');
 
+    const toSingular = t.major >= 48;
     if (opts.folders) {
       const renamed = [];
       for (const n of entries()) {
         if (!n.startsWith(base)) continue;
         const rel = n.slice(base.length);
-        const nr = singularizePath(rel);
+        const nr = convertFolderPath(rel, toSingular);
         if (nr === rel) continue;
         const dest = base + nr;
         if (zip.file(dest)) { warnings.push(`Conflicto: ya existe ${dest}; no se renombró ${rel}`); continue; }
@@ -493,16 +663,23 @@ If this abort() is unexpected, build with -s ASSERTIONS=1 which can give more in
         for (const d of all) {
           if (zip.files[d].dir && !all.some(o => o !== d && o.startsWith(d))) zip.remove(d);
         }
-        changes.push(`${renamed.length} archivo(s) movido(s) a carpeta singular`);
+        changes.push(`${renamed.length} archivo(s) movido(s) a carpeta ${toSingular ? 'singular' : 'plural'}`);
         renamed.slice(0, 50).forEach(r => changes.push('   · ' + r));
         if (renamed.length > 50) changes.push(`   · ...y ${renamed.length - 50} más`);
       } else {
-        changes.push('Carpetas: ya estaban en formato singular');
+        changes.push(`Carpetas: ya estaban en formato ${toSingular ? 'singular' : 'plural'}`);
       }
     }
 
     const hits = new Map();
-    for (const n of entries()) {
+    if (t.major < 4 || (srcMajor && srcMajor < 4)) {
+      warnings.push('Los datapacks no existen en 1.12: el formato 3 es el de los packs de recursos, y Minecraft no cargará este pack como datapack');
+    }
+    const downgrade = srcMajor && srcMajor > t.major;
+    if (downgrade) {
+      warnings.push('Bajada de versión: los cambios de contenido (atributos, predicados, comandos…) no se revierten automáticamente; revisa los datos');
+    }
+    for (const n of (downgrade ? [] : entries())) {
       if (!n.startsWith(base) || n === metaPath) continue;
       const ext = n.split('.').pop().toLowerCase();
       const relevant = DP_RULES.filter(r => r.ext.includes(ext));
@@ -580,6 +757,15 @@ If this abort() is unexpected, build with -s ASSERTIONS=1 which can give more in
       warnings.push('Desde 1.21.4 los ítems usan definiciones en assets/<espacio>/items/; este pack solo tiene models/item/ y puede no mostrar esas texturas');
     }
 
+    const oldTexDirs = inside.some(n => /^assets\/[^/]+\/textures\/(blocks|items)\//.test(n.slice(base.length)));
+    const newTexDirs = inside.some(n => /^assets\/[^/]+\/textures\/(block|item)\//.test(n.slice(base.length)));
+    if (t.major < 4 && newTexDirs) {
+      warnings.push('Hasta 1.12 las carpetas de texturas son blocks/ e items/ (en 1.13 pasaron a block/ e item/): revisa las rutas');
+    }
+    if (t.major >= 4 && oldTexDirs) {
+      warnings.push('Desde 1.13 las carpetas de texturas son block/ e item/ (singular); este pack usa blocks/ o items/ y sus texturas pueden no cargarse');
+    }
+
     const overlays = meta.overlays && Array.isArray(meta.overlays.entries) ? meta.overlays.entries.length : 0;
     if (overlays) warnings.push(`Tiene ${overlays} overlay(s) con formatos propios: no se han modificado, revísalos`);
 
@@ -604,10 +790,24 @@ If this abort() is unexpected, build with -s ASSERTIONS=1 which can give more in
     const pVer = verM ? verM[1].replace(/['"]/g, '') : '?';
     const pType = ymls[0] === 'paper-plugin.yml' ? 'paper-plugin.yml (Paper)' : 'plugin.yml (Bukkit/Spigot/Paper)';
     changes.push(`Detectado: ${pName} v${pVer} · ${pType}`);
+    const beforeApiVersion = verLt(label, '1.13');
+    if (beforeApiVersion && ymls.includes('paper-plugin.yml')) {
+      warnings.push('paper-plugin.yml es el formato de Paper moderno: un servidor de la versión destino no lo leerá');
+    }
     for (const y of ymls) {
       let text = await zip.file(y).async('string');
       const m = text.match(/^api-version:\s*(.*?)\s*$/m);
       const oldV = m ? m[1].replace(/['"]/g, '') : null;
+      if (beforeApiVersion) {
+        if (m) {
+          text = text.replace(/^api-version:.*\r?\n?/m, '');
+          zip.file(y, text);
+          changes.push(`${y}: api-version ${oldV} eliminado (solo existe desde 1.13)`);
+        } else {
+          changes.push(`${y}: sin api-version (solo existe desde 1.13)`);
+        }
+        continue;
+      }
       const line = `api-version: '${label}'`;
       if (m) text = text.replace(/^api-version:.*$/m, line);
       else text = text.replace(/\s*$/, '\n') + line + '\n';
@@ -763,6 +963,12 @@ If this abort() is unexpected, build with -s ASSERTIONS=1 which can give more in
     }
     if (forge || neo) {
       warnings.push('Forge/NeoForge: la versión mínima del loader (loaderVersion) no se cambia automáticamente.');
+    }
+    if ((fabric || quilt) && verLt(label, '1.14')) {
+      warnings.push(`Fabric/Quilt no existen en ${label} (empiezan en 1.14)`);
+    }
+    if ((forge || neo) && verLt(label, '1.13')) {
+      warnings.push(`mods.toml solo existe desde 1.13: en ${label} los mods de Forge usan mcmod.info`);
     }
     changes.unshift(`Detectado: ${loaders.join(' + ')} · ${modId ?? 'sin id'} v${modVersion ?? '?'}`);
     return { changes, warnings };
@@ -957,5 +1163,5 @@ If this abort() is unexpected, build with -s ASSERTIONS=1 which can give more in
   showTab(location.hash.replace('#', '') || 'datapacks');
 })();
 </script>
-</body>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a48491832a9d0c21',t:'MTc5MTYyNDIyOA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
